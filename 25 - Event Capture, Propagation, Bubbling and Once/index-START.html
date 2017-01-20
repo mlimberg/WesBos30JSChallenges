@@ -37,8 +37,23 @@
   }
 </style>
 
-<button></button>
+<button>CLICK ME</button>
 <script>
+const divs = document.querySelectorAll('div');
+
+function logText(e) {
+  console.log(this.classList.value)
+  e.stopPropagation();
+}
+
+button.addEventListener('click', () => doThing(), {
+  once: true
+})
+
+divs.forEach(div => div.addEventListener('click', logText, {
+  capture: false,
+  once: true
+}))
 
 </script>
 </body>
