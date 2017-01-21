@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <p class='p-tag' onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
@@ -17,29 +17,56 @@
       p.style.fontSize = '50px';
     }
 
+    const xyz = 'variable'
+
     // Regular
 
     // Interpolated
+      console.log(`I can insert a ${xyz} here!`)
 
     // Styled
+      console.log('%c because styles are cool', 'background-color: green; font-size: 18px; color: pink')
 
     // warning!
+      console.warn('Warning!!!!!!!')
 
     // Error :|
+      console.error('Ooooh Shit!')
 
     // Info
+      console.info('Did you know that stuff does things?')
 
     // Testing
+      console.assert(1 === 1, "This is correct and will never show!")
+      console.assert(1 === 2, "this shit is plain wrong!")
 
     // clearing
+      console.clear()
 
     // Viewing DOM Elements
+      console.dir(document.querySelector('.p-tag'))
 
     // Grouping together
 
+      dogs.forEach(dog => {
+        console.group(`${dog.name}`)
+          console.log(`This is ${dog.name}`)
+          console.log(`This dog is ${dog.age} years old`)
+        console.groupEnd(`${dog.name}`)
+      })
     // counting
+    console.count('testing');
+    console.count('testing');
+    console.count('testing');
+    console.count('testing');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+      })
 
   </script>
 </body>
